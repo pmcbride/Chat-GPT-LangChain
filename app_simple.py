@@ -54,6 +54,10 @@ from langchain.chains.question_answering import load_qa_chain
 import elevenlabs
 from elevenlabs import generate, play, save, stream
 
+import pprint as pp
+pprint = pp.PrettyPrinter(sort_dicts=False).pprint
+pformat = pp.PrettyPrinter(sort_dicts=False).pformat
+
 news_api_key = os.environ["NEWS_API_KEY"]
 tmdb_bearer_token = os.environ["TMDB_BEARER_TOKEN"]
 
@@ -595,6 +599,7 @@ class ChatWrapper:
         try:
             print("\n==== date/time: " + str(datetime.datetime.now()) + " ====")
             print(f"inp:                {inp}") # + inp)
+            print(f"chain:              {chain}")
             print(f"trace_chain:        {trace_chain}") #, trace_chain)
             print(f"speak_text:         {speak_text}") #, speak_text)
             print(f"talking_head:       {talking_head}") #, talking_head)
